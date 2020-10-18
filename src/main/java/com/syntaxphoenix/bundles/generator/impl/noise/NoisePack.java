@@ -17,18 +17,25 @@ public final class NoisePack implements NoiseProvider {
 		Collections.addAll(this.rules, rules);
 	}
 
-	public final NoiseProvider getProvider() {
+	public NoiseProvider getProvider() {
 		return provider;
 	}
 
+	public NoiseRule[] getRules() {
+		return rules.toArray(new NoiseRule[0]);
+	}
+
+	@Override
 	public void setSeed(long seed) {
 		provider.setSeed(seed);
 	}
 
+	@Override
 	public long getSeed() {
 		return provider.getSeed();
 	}
 
+	@Override
 	public double getNoise(int x, int z) {
 		double originalNoise = provider.getNoise(x, z);
 		double currentNoise = originalNoise;

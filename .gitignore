@@ -1,0 +1,11 @@
+/bin/
+/target/
+/.settings/
+/.idea/
+/.m2/
+/.classpath
+/.project
+/RealisticWorldGenerator.iml
+/dependency-reduced-pom.xml
+/.gitlab-ci.yml
+/test/

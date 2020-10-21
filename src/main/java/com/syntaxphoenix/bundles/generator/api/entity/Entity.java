@@ -1,12 +1,12 @@
-package com.syntaxphoenix.bundles.generator.api.biome;
+package com.syntaxphoenix.bundles.generator.api.entity;
 
 import com.syntaxphoenix.bundles.generator.api.registry.IRegisterable;
 import com.syntaxphoenix.syntaxapi.utils.key.AbstractKeyed;
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
-public abstract class Biome extends AbstractKeyed implements IRegisterable<Biome> {
+public abstract class Entity extends AbstractKeyed implements IRegisterable<Entity> {
 
-	public Biome(IKey key) {
+	public Entity(IKey key) {
 		super(key);
 	}
 

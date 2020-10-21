@@ -1,17 +1,25 @@
 package com.syntaxphoenix.bundles.generator.api.noise;
 
-public interface NoiseGenerator extends NoiseProvider {
+import com.syntaxphoenix.bundles.generator.api.registry.IRegisterable;
+import com.syntaxphoenix.syntaxapi.utils.key.AbstractKeyed;
+import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
-	void setBaseHeight(double height);
+public abstract class NoiseGenerator extends AbstractKeyed implements NoiseProvider, IRegisterable<NoiseGenerator> {
 
-	double getBaseHeight();
+	public NoiseGenerator(IKey key) {
+		super(key);
+	}
 
-	void setMultiplierX(double multiplier);
+	public abstract void setBaseHeight(double height);
 
-	double getMultiplierX();
+	public abstract double getBaseHeight();
 
-	void setMultiplierZ(double multiplier);
+	public abstract void setMultiplierX(double multiplier);
 
-	double getMultiplierZ();
+	public abstract double getMultiplierX();
+
+	public abstract void setMultiplierZ(double multiplier);
+
+	public abstract double getMultiplierZ();
 
 }

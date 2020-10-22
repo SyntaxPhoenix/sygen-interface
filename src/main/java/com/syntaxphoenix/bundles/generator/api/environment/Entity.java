@@ -9,6 +9,10 @@ public abstract class Entity extends WorldObject<Entity> implements IRegisterabl
 		super(key);
 	}
 	
+	public abstract String getName();
+	
+	public abstract void setName(String name);
+	
 	public abstract EntityAdapter<?> getAdapter();
 
 }

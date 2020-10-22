@@ -1,6 +1,12 @@
 package com.syntaxphoenix.bundles.generator.api.environment;
 
+import com.syntaxphoenix.syntaxapi.utils.key.IKey;
+
 public abstract class BlockAdapter<H> extends ObjectAdapter<Block> {
+
+	public BlockAdapter(IKey key) {
+		super(key);
+	}
 
 	public abstract H getBlock(World<?> world, int x, int y, int z);
 

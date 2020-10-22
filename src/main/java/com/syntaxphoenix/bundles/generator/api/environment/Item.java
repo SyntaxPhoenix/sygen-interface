@@ -9,6 +9,10 @@ public abstract class Item extends WorldObject<Item> implements IRegisterable<It
 		super(key);
 	}
 	
+	public abstract int getAmount();
+	
+	public abstract void setAmount(int amount);
+	
 	public abstract ItemAdapter<?> getAdapter();
 
 }

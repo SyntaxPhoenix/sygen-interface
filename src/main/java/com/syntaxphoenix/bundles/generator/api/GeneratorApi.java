@@ -12,7 +12,7 @@ import com.syntaxphoenix.syntaxapi.utils.key.Namespace;
 public abstract class GeneratorApi {
 
 	public static final Namespace NAMESPACE = Namespace.of("generatorapi");
-	
+
 	public abstract RegistryHandler<ObjectAdapter<?>> getObjectRegistry();
 
 	public abstract RegistryHandler<NoiseGenerator> getNoiseRegistry();

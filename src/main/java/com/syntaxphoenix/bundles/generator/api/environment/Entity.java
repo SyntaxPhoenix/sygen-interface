@@ -13,6 +13,6 @@ public abstract class Entity extends WorldObject<Entity> implements IRegisterabl
 	
 	public abstract void setName(String name);
 	
-	public abstract EntityAdapter<?> getAdapter();
+	public abstract EntityAdapter getAdapter();
 
 }

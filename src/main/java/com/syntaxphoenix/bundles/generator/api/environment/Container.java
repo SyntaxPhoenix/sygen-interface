@@ -8,7 +8,7 @@ public abstract class Container extends WorldObject<Container> {
 		super(key);
 	}
 
-	public abstract ContainerAdapter<?> getAdapter();
+	public abstract ContainerAdapter getAdapter();
 
 	public abstract int getSize();
 

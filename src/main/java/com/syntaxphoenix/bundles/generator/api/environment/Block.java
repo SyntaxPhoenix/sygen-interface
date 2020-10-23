@@ -9,6 +9,6 @@ public abstract class Block extends WorldObject<Block> implements IRegisterable<
 		super(key);
 	}
 	
-	public abstract BlockAdapter<?> getAdapter();
+	public abstract BlockAdapter getAdapter();
 	
 }

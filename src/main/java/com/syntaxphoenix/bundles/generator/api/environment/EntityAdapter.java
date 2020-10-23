@@ -2,18 +2,18 @@ package com.syntaxphoenix.bundles.generator.api.environment;
 
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
-public abstract class EntityAdapter<H> extends ObjectAdapter<Entity> {
+public abstract class EntityAdapter extends ObjectAdapter<Entity, EntityAdapter> {
 
 	public EntityAdapter(IKey key) {
 		super(key);
 	}
 
-	public abstract H spawnEntity(World<?> world, int x, int y, int z, Entity entity);
-	
-	public abstract H dropItem(World<?> world, int x, int y, int z, Item item);
+	public abstract Object spawnEntity(World<?> world, int x, int y, int z, Entity entity);
 
-	public abstract Entity getData(H handle);
-	
-	public abstract boolean hasData(H handle, Entity entity);
+	public abstract Object dropItem(World<?> world, int x, int y, int z, Item item);
+
+	public abstract Entity getData(Object handle);
+
+	public abstract boolean hasData(Object handle, Entity entity);
 
 }

@@ -34,7 +34,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: mvn -s $GITHUB_WORKSPACE/settings.xml --batch-mode deploy -Dmaven.test.skip=true -Dmaven.main.skip=true
       env:
         MAVEN_USER: ${{ secrets.MAVEN_USER }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}

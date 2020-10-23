@@ -24,9 +24,6 @@
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 			</distributionManagement>
-			<properties>
-				<gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
-			</properties>
 		</profile>
 	</profiles>
 </settings>

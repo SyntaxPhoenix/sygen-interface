@@ -5,7 +5,7 @@
 	<groupId>com.syntaxphoenix.bundles.generator</groupId>
 	<artifactId>interface</artifactId>
 	<name>Generator Interface</name>
-	<version>1.0</version>
+	<version>0.1</version>
 
 	<description>A Api Interface to the abstract sygen generator (close source)</description>
 	<url>https://github.com/SyntaxPhoenix</url>

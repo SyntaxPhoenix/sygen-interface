@@ -24,7 +24,7 @@ jobs:
     - name: Build GPG Key
       run: |
         mkdir -p ~/.gnupg/
-        printf "$GPG_SECRET_KEY" > ~/.gnupg/private.key
+        echo "$GPG_SECRET_KEY" > ~/.gnupg/private.key
         gpg --no-tty --batch --yes --passphrase $GPG_PASSPHRASE --import ~/.gnupg/private.key
       env:
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

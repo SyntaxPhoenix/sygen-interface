@@ -22,7 +22,10 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build GPG Key
-      run: gpg --no-tty --batch --yes --passphrase $GPG_PASSPHRASE --import $GPG_SECRET_KEY
+      run: |
+        mkdir -p ~/.gnupg/
+        printf "$GPG_SECRET_KEY" | base64 --decode > ~/.gnupg/private.key
+        gpg --no-tty --batch --yes --passphrase $GPG_PASSPHRASE --import $GPG_SECRET_KEY
       env:
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}

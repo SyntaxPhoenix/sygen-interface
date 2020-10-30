@@ -12,9 +12,22 @@ public final class NoisePack implements NoiseProvider {
 	private final NoiseProvider provider;
 	private final ArrayList<NoiseRule> rules = new ArrayList<>();
 
+	private final double baseHeight;
+
 	public NoisePack(NoiseProvider provider, NoiseRule... rules) {
 		this.provider = Objects.requireNonNull(provider);
+		this.baseHeight = 0;
 		Collections.addAll(this.rules, rules);
+	}
+
+	public NoisePack(double baseHeight, NoiseProvider provider, NoiseRule... rules) {
+		this.provider = Objects.requireNonNull(provider);
+		this.baseHeight = baseHeight;
+		Collections.addAll(this.rules, rules);
+	}
+
+	public double getBaseHeight() {
+		return baseHeight;
 	}
 
 	public NoiseProvider getProvider() {
@@ -45,7 +58,7 @@ public final class NoisePack implements NoiseProvider {
 			}
 			currentNoise = rule.apply(originalNoise, currentNoise, x, z);
 		}
-		return currentNoise;
+		return baseHeight + currentNoise;
 	}
 
 }

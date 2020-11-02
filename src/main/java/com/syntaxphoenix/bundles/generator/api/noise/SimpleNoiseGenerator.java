@@ -4,9 +4,9 @@ import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
 public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 
-	protected double height;
-	protected double multiplierX;
-	protected double multiplierZ;
+	protected double height = 0;
+	protected double multiplierX = 0;
+	protected double multiplierZ = 0;
 
 	public SimpleNoiseGenerator(IKey key) {
 		super(key);
@@ -44,7 +44,14 @@ public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 
 	@Override
 	public double getNoise(int x, int z) {
-		return generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ)) + height;
+		System.out.println("t: " + (getKey().getKey()) + "/ o: " + this);
+		System.out.println("x: " + x + "/ z:" + z);
+		System.out.println("mX: " + multiplierX + "/ mZ: " + multiplierZ + "/ h: " + height);
+		System.out.println(
+			"eX " + (x * multiplierX) + " <-> vX: " + ((float) (x * multiplierX)) + "/ eZ " + (z * multiplierZ) + " <-> vZ: " + ((float) (z * multiplierZ)));
+		double noise = generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ));
+		System.out.println("gN: " + noise + "/ hN: " + (noise + height));
+		return noise + height;
 	}
 
 	protected abstract double generateNoiseAt(float x, float z);

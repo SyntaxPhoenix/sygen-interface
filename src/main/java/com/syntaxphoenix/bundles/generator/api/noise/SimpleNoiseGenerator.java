@@ -44,14 +44,7 @@ public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 
 	@Override
 	public double getNoise(int x, int z) {
-		System.out.println("t: " + (getKey().getKey()) + "/ o: " + this);
-		System.out.println("x: " + x + "/ z:" + z);
-		System.out.println("mX: " + multiplierX + "/ mZ: " + multiplierZ + "/ h: " + height);
-		System.out.println(
-			"eX " + (x * multiplierX) + " <-> vX: " + ((float) (x * multiplierX)) + "/ eZ " + (z * multiplierZ) + " <-> vZ: " + ((float) (z * multiplierZ)));
-		double noise = generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ));
-		System.out.println("gN: " + noise + "/ hN: " + (noise + height));
-		return noise + height;
+		return generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ)) + height;
 	}
 
 	protected abstract double generateNoiseAt(float x, float z);

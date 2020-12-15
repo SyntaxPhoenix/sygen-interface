@@ -5,14 +5,16 @@ import java.util.Collections;
 
 import com.syntaxphoenix.bundles.generator.api.noise.NoiseProvider;
 
-public final class NoiseBundle implements NoiseProvider {
+public class NoiseAverage implements NoiseProvider {
 
 	private final ArrayList<NoiseProvider> providers = new ArrayList<>();
+	private final int amount;
 	private double baseHeight = 0.0D;
 
-	public NoiseBundle(double baseHeight, NoiseProvider... providers) {
+	public NoiseAverage(double baseHeight, NoiseProvider... providers) {
 		this.baseHeight = baseHeight;
 		Collections.addAll(this.providers, providers);
+		this.amount = this.providers.size();
 	}
 
 	public NoiseProvider[] getProviders() {
@@ -43,7 +45,7 @@ public final class NoiseBundle implements NoiseProvider {
 		for (NoiseProvider provider : providers) {
 			noise += provider.getNoise(x, z);
 		}
-		return baseHeight + noise;
+		return baseHeight + (noise / amount);
 	}
 
 }

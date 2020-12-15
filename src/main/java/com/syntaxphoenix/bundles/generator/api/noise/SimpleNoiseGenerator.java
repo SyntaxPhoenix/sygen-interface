@@ -4,7 +4,7 @@ import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
 public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 
-	protected double height = 0;
+	protected double heightMultiplier = 0;
 	protected double multiplierX = 0;
 	protected double multiplierZ = 0;
 
@@ -13,8 +13,8 @@ public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 	}
 
 	@Override
-	public void setBaseHeight(double height) {
-		this.height = height;
+	public void setHeightMultiplier(double heightMultiplier) {
+		this.heightMultiplier = heightMultiplier;
 	}
 
 	@Override
@@ -28,8 +28,8 @@ public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 	}
 
 	@Override
-	public double getBaseHeight() {
-		return height;
+	public double getHeightMultiplier() {
+		return heightMultiplier;
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public abstract class SimpleNoiseGenerator extends NoiseGenerator {
 
 	@Override
 	public double getNoise(int x, int z) {
-		return generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ)) + height;
+		return generateNoiseAt((float) (x * multiplierX), (float) (z * multiplierZ)) * heightMultiplier;
 	}
 
 	protected abstract double generateNoiseAt(float x, float z);

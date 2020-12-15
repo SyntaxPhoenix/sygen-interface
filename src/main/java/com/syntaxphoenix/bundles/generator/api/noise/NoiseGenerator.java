@@ -10,9 +10,9 @@ public abstract class NoiseGenerator extends AbstractKeyed implements NoiseProvi
 		super(key);
 	}
 
-	public abstract void setBaseHeight(double height);
+	public abstract void setHeightMultiplier(double heightMultiplier);
 
-	public abstract double getBaseHeight();
+	public abstract double getHeightMultiplier();
 
 	public abstract void setMultiplierX(double multiplier);
 

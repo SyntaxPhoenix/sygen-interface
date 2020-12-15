@@ -25,7 +25,7 @@ public class SectionRule implements NoiseRule {
 	@Override
 	public double apply(double originalNoise, double currentNoise, int x, int z) {
 		for (Section section : sections) {
-			if (section.getMin() <= originalNoise && section.getMax() >= originalNoise) {
+			if (section.getMin() < originalNoise && section.getMax() >= originalNoise) {
 				return section.getNoiseFor(originalNoise);
 			}
 		}

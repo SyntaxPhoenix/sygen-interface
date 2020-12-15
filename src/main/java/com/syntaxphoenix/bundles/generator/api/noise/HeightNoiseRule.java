@@ -10,9 +10,4 @@ public abstract class HeightNoiseRule implements NoiseRule {
 		this.heightMax = heightMax;
 	}
 
-	@Override
-	public boolean isApplyable(double originalNoise) {
-		return heightMin <= originalNoise && originalNoise <= heightMax;
-	}
-
 }

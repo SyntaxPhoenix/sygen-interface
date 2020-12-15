@@ -12,6 +12,11 @@ public class ScaleRule extends HeightNoiseRule {
 	}
 
 	@Override
+	public boolean isApplyable(double originalNoise) {
+		return heightMin < originalNoise && originalNoise <= heightMax;
+	}
+
+	@Override
 	public double apply(double originalNoise, double currentNoise, int x, int z) {
 		double difference = originalNoise - heightMin;
 		return currentNoise + ((difference * scale) - difference);

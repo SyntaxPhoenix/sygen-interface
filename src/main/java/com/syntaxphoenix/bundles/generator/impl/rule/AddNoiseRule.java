@@ -13,6 +13,11 @@ public class AddNoiseRule extends HeightNoiseRule {
 	}
 
 	@Override
+	public boolean isApplyable(double originalNoise) {
+		return heightMin <= originalNoise && originalNoise <= heightMax;
+	}
+
+	@Override
 	public double apply(double originalNoise, double currentNoise, int x, int z) {
 		double addNoise = this.provider.getNoise(x, z);
 		if (addNoise < 0.0D) {

@@ -8,9 +8,9 @@ public abstract class EntityAdapter extends ObjectAdapter<Entity, EntityAdapter>
 		super(key);
 	}
 
-	public abstract Object spawnEntity(World<?> world, int x, int y, int z, Entity entity);
+	public abstract Object spawnEntity(Area<?> world, int x, int y, int z, Entity entity);
 
-	public abstract Object dropItem(World<?> world, int x, int y, int z, Item item);
+	public abstract Object dropItem(Area<?> world, int x, int y, int z, Item item);
 
 	public abstract Entity getData(Object handle);
 

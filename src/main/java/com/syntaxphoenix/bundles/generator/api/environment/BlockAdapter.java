@@ -8,21 +8,21 @@ public abstract class BlockAdapter extends ObjectAdapter<Block, BlockAdapter> {
 		super(key);
 	}
 
-	public abstract Object getBlock(World<?> world, int x, int y, int z);
+	public abstract Object getBlock(Area<?> world, int x, int y, int z);
 
-	public Object setBlock(World<?> world, int x, int y, int z, Block data) {
+	public Object setBlock(Area<?> world, int x, int y, int z, Block data) {
 		return setBlock(getBlock(world, x, y, z), data);
 	}
 
 	public abstract Object setBlock(Object handle, Block data);
 
-	public Block getData(World<?> world, int x, int y, int z) {
+	public Block getData(Area<?> world, int x, int y, int z) {
 		return getData(getBlock(world, x, y, z));
 	}
 
 	public abstract Block getData(Object handle);
 
-	public boolean hasData(World<?> world, int x, int y, int z, Block data) {
+	public boolean hasData(Area<?> world, int x, int y, int z, Block data) {
 		return hasData(getBlock(world, x, y, z), data);
 	}
 

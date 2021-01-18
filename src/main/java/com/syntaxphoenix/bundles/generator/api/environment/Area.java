@@ -3,9 +3,9 @@ package com.syntaxphoenix.bundles.generator.api.environment;
 import com.syntaxphoenix.syntaxapi.utils.key.AbstractKeyed;
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
-public abstract class World<T> extends AbstractKeyed {
+public abstract class Area<T> extends AbstractKeyed {
 	
-	public World(IKey key) {
+	public Area(IKey key) {
 		super(key);
 	}
 

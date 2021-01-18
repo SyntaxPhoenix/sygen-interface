@@ -9,5 +9,7 @@ public abstract class Biome extends AbstractKeyed implements IRegisterable<Biome
 	public Biome(IKey key) {
 		super(key);
 	}
+	
+	public abstract BiomeAdapter getAdapter();
 
 }

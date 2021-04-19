@@ -1,11 +1,9 @@
 package com.syntaxphoenix.bundles.generator.api.registry.argument;
 
-import java.util.Optional;
-
 public final class EmptyArgumentMap implements IArgumentMap {
-
+    
     public static final EmptyArgumentMap INSTANCE = new EmptyArgumentMap();
-
+    
     private EmptyArgumentMap() {}
 
     @Override
@@ -19,13 +17,13 @@ public final class EmptyArgumentMap implements IArgumentMap {
     }
 
     @Override
-    public Optional<Object> get(String key) {
-        return Optional.empty();
+    public Option<Object> get(String key) {
+        return Option.empty();
     }
 
     @Override
-    public <E> Optional<E> get(String key, Class<E> type) {
-        return Optional.empty();
+    public <E> Option<E> get(String key, Class<E> type) {
+        return Option.empty();
     }
 
     @Override

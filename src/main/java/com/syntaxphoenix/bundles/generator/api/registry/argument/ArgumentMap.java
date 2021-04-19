@@ -2,7 +2,6 @@ package com.syntaxphoenix.bundles.generator.api.registry.argument;
 
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Optional;
 
 public class ArgumentMap implements IArgumentMap {
 
@@ -17,11 +16,11 @@ public class ArgumentMap implements IArgumentMap {
         return object != null && type.isInstance(object);
     }
 
-    public Optional<Object> get(String key) {
-        return Optional.ofNullable(map.get(key));
+    public Option<Object> get(String key) {
+        return Option.of(map.get(key));
     }
 
-    public <E> Optional<E> get(String key, Class<E> type) {
+    public <E> Option<E> get(String key, Class<E> type) {
         return get(key).filter(type::isInstance).map(type::cast);
     }
 

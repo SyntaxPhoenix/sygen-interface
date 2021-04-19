@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import com.syntaxphoenix.syntaxapi.command.ArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.EmptyArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.IArgumentMap;
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 
 public abstract class Registry<E extends IRegisterable<E>, R extends RegistryEntry<E>> implements IRegistry<E> {
@@ -26,17 +27,17 @@ public abstract class Registry<E extends IRegisterable<E>, R extends RegistryEnt
 	}
 
 	@Override
-	public E getOrDefault(IKey key, ArgumentMap arguments, E fallback) {
+	public E getOrDefault(IKey key, IArgumentMap arguments, E fallback) {
 		return get(key, arguments).orElse(fallback);
 	}
 
 	@Override
 	public Optional<E> get(IKey key) {
-		return get(key, ArgumentMap.EMPTY);
+		return get(key, EmptyArgumentMap.INSTANCE);
 	}
 
 	@Override
-	public abstract Optional<E> get(IKey key, ArgumentMap arguments);
+	public abstract Optional<E> get(IKey key, IArgumentMap arguments);
 
 	protected abstract R buildEntry(E object);
 

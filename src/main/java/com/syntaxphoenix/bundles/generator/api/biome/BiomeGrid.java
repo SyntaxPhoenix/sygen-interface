@@ -6,6 +6,6 @@ public interface BiomeGrid {
 
 	int getHeight();
 
-	Biome getBiomeAt(int x, int y);
+	Biome getBiomeAt(int x, int z);
 
 }

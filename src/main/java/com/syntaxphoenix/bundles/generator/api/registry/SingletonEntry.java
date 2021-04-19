@@ -1,6 +1,6 @@
 package com.syntaxphoenix.bundles.generator.api.registry;
 
-import com.syntaxphoenix.syntaxapi.command.ArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.IArgumentMap;
 
 public class SingletonEntry<V extends IRegisterable<V>> extends RegistryEntry<V> {
 
@@ -13,7 +13,7 @@ public class SingletonEntry<V extends IRegisterable<V>> extends RegistryEntry<V>
 	}
 
 	@Override
-	public V buildValue(ArgumentMap map) {
+	public V buildValue(IArgumentMap map) {
 		return value;
 	}
 

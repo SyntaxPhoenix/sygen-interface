@@ -1,6 +1,6 @@
 package com.syntaxphoenix.bundles.generator.api.registry;
 
-import com.syntaxphoenix.syntaxapi.command.ArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.IArgumentMap;
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 import com.syntaxphoenix.syntaxapi.utils.key.IKeyed;
 
@@ -12,7 +12,7 @@ public abstract class RegistryEntry<V extends IRegisterable<V>> implements IKeye
 		this.value = value;
 	}
 
-	public abstract V buildValue(ArgumentMap arguments);
+	public abstract V buildValue(IArgumentMap arguments);
 
 	@Override
 	public IKey getKey() {

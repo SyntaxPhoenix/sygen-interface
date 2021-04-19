@@ -1,6 +1,6 @@
 package com.syntaxphoenix.bundles.generator.api.registry;
 
-import com.syntaxphoenix.syntaxapi.command.ArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.IArgumentMap;
 
 public class ConstructEntry<V extends IRegisterable<V>> extends RegistryEntry<V> {
 	
@@ -12,7 +12,7 @@ public class ConstructEntry<V extends IRegisterable<V>> extends RegistryEntry<V>
 	}
 
 	@Override
-	public V buildValue(ArgumentMap arguments) {
+	public V buildValue(IArgumentMap arguments) {
 		return builder.build(arguments);
 	}
 

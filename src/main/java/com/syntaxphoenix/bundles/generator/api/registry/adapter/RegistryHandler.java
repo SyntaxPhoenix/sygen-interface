@@ -8,7 +8,8 @@ import java.util.Optional;
 import com.syntaxphoenix.bundles.generator.api.registry.IRegisterable;
 import com.syntaxphoenix.bundles.generator.api.registry.IRegistry;
 import com.syntaxphoenix.bundles.generator.api.registry.Registry;
-import com.syntaxphoenix.syntaxapi.command.ArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.EmptyArgumentMap;
+import com.syntaxphoenix.bundles.generator.api.registry.argument.IArgumentMap;
 import com.syntaxphoenix.syntaxapi.nbt.NbtCompound;
 import com.syntaxphoenix.syntaxapi.utils.key.IKey;
 import com.syntaxphoenix.syntaxapi.utils.key.INamespace;
@@ -60,17 +61,17 @@ public class RegistryHandler<E extends IRegisterable<E>> implements IRegistry<E>
 	}
 
 	@Override
-	public E getOrDefault(IKey key, ArgumentMap arguments, E fallback) {
+	public E getOrDefault(IKey key, IArgumentMap arguments, E fallback) {
 		return get(key, arguments).orElse(fallback);
 	}
 
 	@Override
 	public Optional<E> get(IKey key) {
-		return get(key, ArgumentMap.EMPTY);
+		return get(key, EmptyArgumentMap.INSTANCE);
 	}
 
 	@Override
-	public Optional<E> get(IKey key, ArgumentMap arguments) {
+	public Optional<E> get(IKey key, IArgumentMap arguments) {
 		Optional<E> option = registry.get(key, arguments);
 		return option.isPresent() ? option : build(key, arguments);
 	}
@@ -87,7 +88,7 @@ public class RegistryHandler<E extends IRegisterable<E>> implements IRegistry<E>
 		return Optional.ofNullable(adapter.build(key));
 	}
 
-	public Optional<E> build(IKey key, ArgumentMap map) {
+	public Optional<E> build(IKey key, IArgumentMap map) {
 		Optional<RegistryAdapter<E>> option = getAdapter(key.getNamespace());
 		if (!option.isPresent()) {
 			return Optional.empty();
